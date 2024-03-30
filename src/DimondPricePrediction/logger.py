@@ -2,14 +2,19 @@ import logging
 import os
 from datetime import datetime
 
+# Define log file name
 LOG_FILE = f"{datetime.now().strftime('%y_%m_%d_%H_%M_%S')}.log"
 
-log_path = os.path.join(os.getcwd(),"logs")
+# Set log path
+log_path = os.path.join(os.getcwd(), "logs")
 
-os.makedirs(log_path,exist_ok=True)
+# Create log directory if it doesn't exist
+os.makedirs(log_path, exist_ok=True)
 
-LOG_FILEPATH=os.path.join(log_path,LOG_FILE)
+# Set log file path
+LOG_FILEPATH = os.path.join(log_path, LOG_FILE)
 
-logging.basicConfig(level=logging.INFO, 
+# Configure logging
+logging.basicConfig(level=logging.INFO,
                     filename=LOG_FILEPATH,
                     format="[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s")
